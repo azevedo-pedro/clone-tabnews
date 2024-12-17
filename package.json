@@ -8,13 +8,14 @@
     "services:up": "docker compose -f infra/compose.yaml up -d",
     "services:stop": "docker compose -f infra/compose.yaml stop",
     "services:down": "docker compose -f infra/compose.yaml down",
-    "lint:check": "prettier --check .",
-    "lint:fix": "prettier --write .",
+    "lint:prettier:check": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
     "test": "npm run services:up && concurrently -n next,jest --hide next -k -s command-jest \"next dev\" \"jest --runInBand --verbose\"",
     "test:watch": "jest --watchAll --runInBand",
     "migration:create": "node-pg-migrate -m infra/migrations create",
     "wait-for-postgres": "node infra/scripts/wait-for-postgres",
-    "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up"
+    "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up",
+    "lint:eslint:check": "next lint --dir ."
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,10 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "jest": "^29.6.2",
-    "prettier": "^3.4.2"
+    "prettier": "^3.4.2",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.5",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-jest": "28.8.0"
   }
 }
