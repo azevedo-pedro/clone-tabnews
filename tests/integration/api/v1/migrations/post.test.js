@@ -8,7 +8,7 @@ beforeAll(async () => {
 
 test("POST to /api/v1/migrations should return 200", async () => {
   const responseOne = await fetch(
-    `${process.env.DEVELOPMENT_URL}/api/v1/migrations`,
+    `http://localhost:3000/api/v1/migrations`,
     {
       method: "POST",
     },
@@ -19,7 +19,7 @@ test("POST to /api/v1/migrations should return 200", async () => {
   expect(responseOneBody.length).toBeGreaterThan(0);
 
   const responseTwo = await fetch(
-    `${process.env.DEVELOPMENT_URL}/api/v1/migrations`,
+    `http://localhost:3000/api/v1/migrations`,
     {
       method: "POST",
     },
