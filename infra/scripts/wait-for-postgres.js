@@ -1,5 +1,5 @@
 const { exec } = require("node:child_process");
-function checkPostgres(params) {
+function checkPostgres() {
   exec("docker exec postgres-dev pg_isready --host localhost", hadleReturn);
   function hadleReturn(error, stdout) {
     if (stdout.search("accepting connections") === -1) {
