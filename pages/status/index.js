@@ -6,7 +6,7 @@ async function get(key) {
 }
 
 export default function StatusPage() {
-  const { data, error } = useSWR("/api/v1/status", get, {
+  const { data } = useSWR("/api/v1/status", get, {
     refreshInterval: 2000,
   });
   return (
