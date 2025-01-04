@@ -9,7 +9,9 @@ export default function StatusPage() {
   const { data, isLoading } = useSWR("/api/v1/status", get, {
     refreshInterval: 2000,
   });
-  const formattedDate = new Date(data.update_at).toLocaleString();
+  const formattedDate = !isLoading
+    ? new Date(data.update_at).toLocaleString()
+    : new Date().toLocaleString();
 
   return (
     <div>
