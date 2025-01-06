@@ -5,12 +5,12 @@ async function query(queryObject) {
   try {
     client = await getNewClient();
     const result = await client.query(queryObject);
-
     return result;
   } catch (err) {
     console.error(err);
+    throw err;
   } finally {
-    await client.end();
+    await client?.end();
   }
 }
 
